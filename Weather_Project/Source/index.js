@@ -39,6 +39,12 @@ function displayCurrentTemp(response) {
   )}°`;
   document.querySelector("#current-condition").innerHTML =
     response.data.weather[0].description;
+  document.querySelector("#wind").innerHTML = `Windspeed: ${Math.round(
+    response.data.wind.speed
+  )}`;
+  document.querySelector(
+    "#humidity"
+  ).innerHTML = `Humidity: ${response.data.main.humidity}%`;
 }
 
 function search(city) {
