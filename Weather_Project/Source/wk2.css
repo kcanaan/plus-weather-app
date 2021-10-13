@@ -26,10 +26,11 @@ h3 {
   text-shadow: #fc0 1px 0 10px;
   font-size: 65px;
   text-align: center;
+  text-transform: capitalize;
 }
 .high-low {
   text-align: center;
-  font-size: 30px;
+  font-size: 25px;
   text-shadow: #fc0 1px 0 10px;
 }
 .row {
@@ -52,7 +53,4 @@ h3 {
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 130px;
-}
-.link {
-  text-align: center;
 }

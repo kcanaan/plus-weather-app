@@ -15,7 +15,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
-   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
   </head>
   <body>
   <div class="appBorder">
@@ -32,7 +33,7 @@
       </form>
     <h1>Atlanta, Georgia</h1>
     <h2>Thursday</h2>
-    <h3>Partly Cloudy</h3>
+    <h3> <span id="current-condition">Partly Cloudy</h3></span>
     <p class="current-weather">
     <span class="current-icon"><svg
         xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +51,7 @@
         />
       </svg></span >
       <span id="current-temperature">88°</span>
-        <div class="high-low">H:90° L:70°</div>
+        <div class="high-low"><span id="temp-high">H:90°</span> <span id="temp-low"> L:70°</span></div>
     </p>
   
     <div class="container">
@@ -97,13 +98,12 @@
 
 <br> H:84° L:61°
     </div>
-
+<small><a href="https://github.com/kcanaan/plus-weather-app">Coded</a> by Kiara Canaan</small>
   </div>
   </div>
   </div>
   </div>
   <script src="Weather_Project/Source/index.js"> </script>
-  <span class="link"><a href="https://github.com/kcanaan/plus-weather-app">Coded</a> by Kiara Canaan</span>
   </body>
 </html>
 

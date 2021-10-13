@@ -26,10 +26,19 @@ h2.innerHTML = `${day}, ${hour}:${minute}`;
 //END week 4^
 //WEEK 5
 function displayCurrentTemp(response) {
+  console.log(response.data);
   document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector("#current-temperature").innerHTML = `${Math.round(
     response.data.main.temp
   )}°`;
+  document.querySelector("#temp-high").innerHTML = `H:${Math.round(
+    response.data.main.temp_max
+  )}°`;
+  document.querySelector("#temp-low").innerHTML = `L:${Math.round(
+    response.data.main.temp_min
+  )}°`;
+  document.querySelector("#current-condition").innerHTML =
+    response.data.weather[0].description;
 }
 
 function search(city) {
@@ -37,7 +46,7 @@ function search(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayCurrentTemp);
 }
-
+// https://api.openweathermap.org/data/2.5/weather?q=Atlanta&appid=40b745c14eadad7b7c4e6e4bf3b70103&units=imperial`
 function locationSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#location-input").value;
