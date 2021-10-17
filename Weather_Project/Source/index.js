@@ -27,15 +27,19 @@ h2.innerHTML = `${day}, ${hour}:${minute}`;
 //WEEK 5
 function displayCurrentTemp(response) {
   console.log(response.data);
+
+  fahrenheitTemp = response.data.main.temp;
+  fahrenheitHigh = response.data.main.temp_max;
+  fahrenheitLow = response.data.main.temp_min;
   document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector("#current-temperature").innerHTML = `${Math.round(
-    response.data.main.temp
-  )}°`;
+    fahrenheitTemp
+  )}`;
   document.querySelector("#temp-high").innerHTML = `H:${Math.round(
-    response.data.main.temp_max
+    fahrenheitHigh
   )}°`;
   document.querySelector("#temp-low").innerHTML = `L:${Math.round(
-    response.data.main.temp_min
+    fahrenheitLow
   )}°`;
   document.querySelector("#current-condition").innerHTML =
     response.data.weather[0].description;
@@ -45,6 +49,11 @@ function displayCurrentTemp(response) {
   document.querySelector(
     "#humidity"
   ).innerHTML = `Humidity: ${response.data.main.humidity}%`;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function search(city) {
@@ -61,3 +70,38 @@ function locationSubmit(event) {
 
 let searchForm = document.querySelector("form");
 searchForm.addEventListener("submit", locationSubmit);
+
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#current-temperature");
+  let celsiusTemp = ((fahrenheitTemp - 32) * 5) / 9;
+  tempElement.innerHTML = Math.round(celsiusTemp);
+  let celsiusHighTemp = ((fahrenheitHigh - 32) * 5) / 9;
+  let celsiusHigh = document.querySelector("#temp-high");
+  celsiusHigh.innerHTML = `H: ${Math.round(celsiusHighTemp)}°`;
+  let celsiusLowTemp = ((fahrenheitLow - 32) * 5) / 9;
+  let celsiusLow = document.querySelector("#temp-low");
+  celsiusLow.innerHTML = `L: ${Math.round(celsiusLowTemp)}°`;
+}
+
+let fahrenheitTemp = null;
+let fahrenheitHigh = null;
+let fahrenheitLow = null;
+
+let celsiusLink = document.querySelector("#celsius");
+
+celsiusLink.addEventListener("click", displayCelsiusTemp);
+
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#current-temperature");
+  tempElement.innerHTML = Math.round(fahrenheitTemp);
+  let fahrenheitHighTemp = document.querySelector("#temp-high");
+  fahrenheitHighTemp.innerHTML = `H: ${Math.round(fahrenheitHigh)}°`;
+  let fahrenheitLowTemp = document.querySelector("#temp-low");
+  fahrenheitLowTemp.innerHTML = `L: ${Math.round(fahrenheitLow)}°`;
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
