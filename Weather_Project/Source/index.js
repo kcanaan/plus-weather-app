@@ -1,27 +1,28 @@
-let h2 = document.querySelector("h2");
+let currentTime = document.querySelector("h2");
+function displayDate(date) {
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  let hours = [
+    12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+    11,
+  ];
+  let hour = hours[date.getHours()];
+  let minute = date.getMinutes();
+  if (minute < 10) {
+    minute = `0${minute}`;
+  }
+  return `${day}, ${hour}:${minute}`;
+}
 let now = new Date();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
-let hours = [
-  12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
-];
-let hour = hours[now.getHours()];
-let minutes = [
-  00, 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12, 13, 14, 15, 16, 17, 18,
-  19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
-  38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56,
-  57, 58, 59, 60,
-];
-let minute = minutes[now.getMinutes()];
-h2.innerHTML = `${day}, ${hour}:${minute}`;
+currentTime.innerHTML = displayDate(now);
 
 //END week 4^
 //WEEK 5
@@ -42,7 +43,7 @@ function formatDay(timestamp) {
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row">`;
+  let forecastHTML = `<hr><div class="row">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 5) {
       forecastHTML =
@@ -53,7 +54,7 @@ function displayForecast(response) {
     )}</span> 
       <br>
      <img
-      src="http://openweathermap.org/img/wn/${
+      src="https://openweathermap.org/img/wn/${
         forecastDay.weather[0].icon
       }@2x.png"
       class="weekday-icon"

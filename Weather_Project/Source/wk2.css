@@ -2,28 +2,26 @@ body {
   font-family: "Comfortaa", cursive;
 }
 .current-weather {
-  text-shadow: #fc0 1px 0 10px;
+  text-shadow: #3f4752 1px 0 5px;
   font-size: 50px;
   text-align: center;
 }
-.current-icon {
-  color: #fc0;
-}
+
 .container {
   font-family: "Comfortaa", cursive;
 }
 h1 {
-  text-shadow: #fc0 1px 0 10px;
+  text-shadow: #095fcc 1px 0 13px;
   font-size: 80px;
   text-align: center;
 }
 h2 {
-  text-shadow: #fc0 1px 0 10px;
+  text-shadow: #095fcc 1px 0 5px;
   font-size: 65px;
   text-align: center;
 }
 h3 {
-  text-shadow: #fc0 1px 0 10px;
+  text-shadow: #095fcc 1px 0 5px;
   font-size: 65px;
   text-align: center;
   text-transform: capitalize;
@@ -31,7 +29,6 @@ h3 {
 .high-low {
   text-align: center;
   font-size: 25px;
-  text-shadow: #fc0 1px 0 10px;
 }
 .row {
   text-align: center;
@@ -57,11 +54,14 @@ h3 {
 .humidity-and-wind {
   text-align: center;
   font-size: 25px;
-  text-shadow: #fc0 1px 0 10px;
 }
 .units {
   font-size: 17px;
   position: relative;
   bottom: 27px;
   left: 2px;
+}
+
+.link {
+  text-align: center;
 }
